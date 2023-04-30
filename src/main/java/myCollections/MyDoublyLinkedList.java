@@ -13,9 +13,9 @@ public class MyDoublyLinkedList<T> {
 
     public void printAll() {
         Node currentElement = first.next;
-        System.out.print("[");
+        System.out.println("[");
         while ((currentElement) != null) {
-            System.out.println("Индекс " +currentElement.index + " -  значение " + currentElement.value.toString()  + "," );
+            System.out.println("Index " +currentElement.index + " -  value " + currentElement.value.toString()  + "," );
             currentElement = currentElement.next;
         }
         System.out.println("]");
