@@ -27,7 +27,19 @@ public class TestingApp {
 //        System.out.println(queue);
 
 
-        System.out.println(" -----------------   testing My Satck -----------------------------");
+//        System.out.println(" -----------------   testing My Stack -----------------------------");
+//        MyStack<String> stack = new MyStack<>();
+//        stack.push("hello!");
+//        System.out.println("size - " + stack.getSize() + "; value - " + stack.get(0));
+//        stack.push("world");
+//        System.out.println("size - " + stack.getSize() + "; value - " + stack.get(1));
+//        System.out.println(stack);
+//        stack.pop();
+//        System.out.println(stack);
+//        stack.clear();
+//        System.out.println(stack);
+
+        System.out.println(" -----------------   testing My Doubly Linked List -----------------------------");
         MyQueue<String> stack = new MyQueue<>();
         stack.add("hello!");
         System.out.println("size - " + stack.getSize() + "; value - " + stack.get(0));
@@ -38,7 +50,5 @@ public class TestingApp {
         System.out.println(stack);
         stack.clear();
         System.out.println(stack);
-
-
     }
 }
