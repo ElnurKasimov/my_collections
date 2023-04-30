@@ -28,27 +28,27 @@ public class TestingApp {
 
 
 //        System.out.println(" -----------------   testing My Stack -----------------------------");
-//        MyStack<String> stack = new MyStack<>();
-//        stack.push("hello!");
-//        System.out.println("size - " + stack.getSize() + "; value - " + stack.get(0));
-//        stack.push("world");
-//        System.out.println("size - " + stack.getSize() + "; value - " + stack.get(1));
-//        System.out.println(stack);
-//        stack.pop();
-//        System.out.println(stack);
-//        stack.clear();
-//        System.out.println(stack);
+//        MyStack<String> doublyList = new MyStack<>();
+//        doublyList.push("hello!");
+//        System.out.println("size - " + doublyList.getSize() + "; value - " + doublyList.get(0));
+//        doublyList.push("world");
+//        System.out.println("size - " + doublyList.getSize() + "; value - " + doublyList.get(1));
+//        System.out.println(doublyList);
+//        doublyList.pop();
+//        System.out.println(doublyList);
+//        doublyList.clear();
+//        System.out.println(doublyList);
 
         System.out.println(" -----------------   testing My Doubly Linked List -----------------------------");
-        MyQueue<String> stack = new MyQueue<>();
-        stack.add("hello!");
-        System.out.println("size - " + stack.getSize() + "; value - " + stack.get(0));
-        stack.add("worrld");
-        System.out.println("size - " + stack.getSize() + "; value - " + stack.get(1));
-        System.out.println(stack);
-        stack.remove(1);
-        System.out.println(stack);
-        stack.clear();
-        System.out.println(stack);
+        MyDoublyLinkedList<String> doublyList = new MyDoublyLinkedList<>();
+        doublyList.add("hello!");
+        System.out.println("size - " + doublyList.size() + "; value - " + doublyList.get(0));
+        doublyList.add("world");
+        System.out.println("size - " + doublyList.size() + "; value - " + doublyList.get(1));
+        doublyList.printAll();
+        doublyList.remove(1);
+        System.out.println(doublyList);
+        doublyList.clear();
+        doublyList.printAll();
     }
 }
