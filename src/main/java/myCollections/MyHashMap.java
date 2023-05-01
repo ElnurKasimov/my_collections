@@ -16,8 +16,8 @@ public class MyHashMap<K, V> {
     public void printAll() {
         Node currentElement = first.next;
         System.out.print("[");
-        while ((currentElement) != null) {
-            System.out.println("Ключ: " +currentElement.key.toString() + ",  значение: " + currentElement.value.toString()  + "," );
+        while ((currentElement) != null && size != 0) {
+            System.out.println("Key: " +currentElement.key.toString() + ",  value: " + currentElement.value.toString()  + "," );
             currentElement = currentElement.next;
         }
         System.out.println("]");
@@ -55,7 +55,7 @@ public class MyHashMap<K, V> {
                 return (V) currentElement.value;
             }
         }
-        throw new MyIllegalArgumentException( "запрос ключа, которого нет ");
+        throw new MyIllegalArgumentException( "trying to get a key which is absent ");
     }
 
     public void remove (Object key) {
@@ -73,7 +73,7 @@ public class MyHashMap<K, V> {
                 break;
             }
         }
-        if (deletedElement == null) throw new  MyIllegalArgumentException( "Удаление  пары, в которой нет такого ключа");
+        if (deletedElement == null) throw new  MyIllegalArgumentException( "Trying to delete a pair which doesn't have such key");
     }
 
     public void clear() {

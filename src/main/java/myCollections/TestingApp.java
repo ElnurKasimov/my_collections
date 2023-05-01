@@ -28,28 +28,42 @@ public class TestingApp {
 
 
 //        System.out.println(" -----------------   testing My Stack -----------------------------");
-//        MyStack<String> doublyList = new MyStack<>();
-//        doublyList.push("hello!");
-//        System.out.println("size - " + doublyList.getSize() + "; value - " + doublyList.get(0));
-//        doublyList.push("world");
-//        System.out.println("size - " + doublyList.getSize() + "; value - " + doublyList.get(1));
-//        System.out.println(doublyList);
-//        doublyList.pop();
+//        MyStack<String> hashMap = new MyStack<>();
+//        hashMap.push("hello!");
+//        System.out.println("size - " + hashMap.getSize() + "; value - " + hashMap.get(0));
+//        hashMap.push("world");
+//        System.out.println("size - " + hashMap.getSize() + "; value - " + hashMap.get(1));
+//        System.out.println(hashMap);
+//        hashMap.pop();
+//        System.out.println(hashMap);
+//        hashMap.clear();
+//        System.out.println(hashMap);
+
+//        System.out.println(" -----------------   testing My Doubly Linked List -----------------------------");
+//        MyDoublyLinkedList<String> doublyList = new MyDoublyLinkedList<>();
+//        doublyList.printAll();
+//        doublyList.add("hello!");
+//        System.out.println("size - " + doublyList.size() + "; value - " + doublyList.get(0));
+//        doublyList.add("world");
+//        System.out.println("size - " + doublyList.size() + "; value - " + doublyList.get(1));
+//        doublyList.printAll();
+//        doublyList.remove(0);
 //        System.out.println(doublyList);
 //        doublyList.clear();
-//        System.out.println(doublyList);
+//        doublyList.printAll();
 
-        System.out.println(" -----------------   testing My Doubly Linked List -----------------------------");
-        MyDoublyLinkedList<String> doublyList = new MyDoublyLinkedList<>();
-        doublyList.printAll();
-        doublyList.add("hello!");
-        System.out.println("size - " + doublyList.size() + "; value - " + doublyList.get(0));
-        doublyList.add("world");
-        System.out.println("size - " + doublyList.size() + "; value - " + doublyList.get(1));
-        doublyList.printAll();
-        doublyList.remove(0);
-        System.out.println(doublyList);
-        doublyList.clear();
-        doublyList.printAll();
+        System.out.println(" -----------------   testing My Hash Map -----------------------------");
+        MyHashMap<String, String> hashMap = new MyHashMap<>();
+        hashMap.printAll();
+        hashMap.put("first", "hello,");
+        hashMap.printAll();
+        hashMap.put("second", "world");
+        hashMap.printAll();
+        hashMap.put("third", "!");
+        hashMap.printAll();
+        hashMap.remove(1);
+        hashMap.printAll();
+        hashMap.clear();
+        hashMap.printAll();
     }
 }
