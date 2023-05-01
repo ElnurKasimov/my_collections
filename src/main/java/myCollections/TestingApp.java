@@ -41,12 +41,13 @@ public class TestingApp {
 
         System.out.println(" -----------------   testing My Doubly Linked List -----------------------------");
         MyDoublyLinkedList<String> doublyList = new MyDoublyLinkedList<>();
+        doublyList.printAll();
         doublyList.add("hello!");
         System.out.println("size - " + doublyList.size() + "; value - " + doublyList.get(0));
         doublyList.add("world");
         System.out.println("size - " + doublyList.size() + "; value - " + doublyList.get(1));
         doublyList.printAll();
-        doublyList.remove(1);
+        doublyList.remove(0);
         System.out.println(doublyList);
         doublyList.clear();
         doublyList.printAll();
