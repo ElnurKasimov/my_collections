@@ -1,93 +1,99 @@
 package main.java.myCollections;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class MyHashMap<K, V> {
-    private Node first = new Node();
-    private Node last = new Node();
+    private Node[] bucket;
     private int size;
-
+    private int index;
     public MyHashMap() {
-        first.next = last;
-        last.prev = first;
-        size=0;
+        size = 10;
+        bucket = new Node[size];
+        index = 0;
     }
 
+    public int getSize() {return this.size;};
+    public int getIndex() {return this.index;};
+    public void setBucket(Node[] updated) {this.bucket = updated;}
+
+
     public void printAll() {
-        Node currentElement = first.next;
-        System.out.print("[");
-        while ((currentElement) != null && size != 0) {
-            System.out.println("Key: " +currentElement.key.toString() + ",  value: " + currentElement.value.toString()  + "," );
-            currentElement = currentElement.next;
+        System.out.println("[");
+        for(Node node : bucket) {
+            if (node !=null) {
+            System.out.println("(" +node.key.toString() + " : " + node.value.toString()  + ")," );
+            }
         }
         System.out.println("]");
     }
 
     public void put  (K key, V value) {
-
         Node node = new Node();
         node.key = key;
         node.value = value;
-
-        Node lastNode = last.prev;
-        lastNode.next = node;
-        node.prev = lastNode;
-        last.prev = node;
-        size++;
-
-        // проверка на уканикальность ключа
-
-        Node currentElement= first.next;
-        while (currentElement != node) {
-            if( currentElement.key.equals(key) ) {
-                remove(key);
+        node.code = Math.abs(node.key.hashCode());
+        // key uniqueness check
+        for (Node n : bucket) {
+            if (n != null && n.code == node.code) {
+                node.index = n.index;
             }
-            currentElement= currentElement.next;
         }
+        if (node.index == 0) {
+            index++;
+            node.index = index;
+        }
+        // Checking that the length of the array is sufficient
+        if (index == size) {
+            int newsize = (int) (size*1.5) ;
+            Node[] updated =  new Node[newsize];
+            updated =  Arrays.copyOf(bucket, newsize);
+            this.setBucket(updated);
+            this.size = newsize;
+            }
+        bucket[node.index] = node;
+
     }
 
-    public V get (Object key) {
-        Node currentElement = first.next;
-        while ((currentElement) != null) {
-            if (!(currentElement.key).equals(key)) {
-                currentElement = currentElement.next;
-            } else {
-                return (V) currentElement.value;
-            }
+    public V get (K key) {
+        for(Node node : bucket) {
+            if (node != null && key.equals(node.getKey())) return (V) node.getValue();
         }
         throw new MyIllegalArgumentException( "trying to get a key which is absent ");
     }
 
-    public void remove (Object key) {
-        Node deletedElement = first.next;
-        while (deletedElement != null) {
-            if (!(deletedElement.key.equals(key))) {
-                deletedElement = deletedElement.next;
-            } else {
-                Node previousOfDeleted = deletedElement.prev;
-                Node nextOfDeleted = deletedElement.next;
-
-                previousOfDeleted.next = nextOfDeleted;
-                nextOfDeleted.prev = previousOfDeleted;
-                size--;
-                break;
-            }
+    public void remove (K key) {
+        int deletingIndex = -1;
+        for (Node node : bucket) {
+            if (node != null && key.equals(node.getKey())) deletingIndex = node.getIndex();
         }
-        if (deletedElement == null) throw new  MyIllegalArgumentException( "Trying to delete a pair which doesn't have such key");
+        if (deletingIndex < 0) throw new  MyIllegalArgumentException
+                ("Trying to delete a pair which doesn't have such key");
+        int i = deletingIndex;
+        while (bucket[i+1] != null ) {
+            bucket[i] = bucket[i+1];
+            bucket[i].setIndex(bucket[i].getIndex()-1);
+            i++;
+        }
+        bucket[i] = null;
     }
 
     public void clear() {
-        first.next = last;
-        last.prev = first;
-        size=0;
+        size = 10;
+        bucket = new Node[size];
+        index = 0;
     }
-    public int size() {  return size; }
 
     public static class Node <K, V> {
-        private Node prev;
         private K key;
         private V value;
-        private Node next;
+        private int index;
+        private int code;
+
+        public K getKey() {return this.key;};
+        public V getValue() {return this.value;};
+        public int getIndex() {return this.index;};
+        public void setIndex(int index) {this.index = index;}
 
         @Override
         public boolean equals(Object o) {

@@ -1,5 +1,8 @@
 package main.java.myCollections;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestingApp {
     public static void main(String[] args) {
 //        System.out.println(" -----------------   testing My Array List -----------------------------");
@@ -55,13 +58,30 @@ public class TestingApp {
         System.out.println(" -----------------   testing My Hash Map -----------------------------");
         MyHashMap<String, String> hashMap = new MyHashMap<>();
         hashMap.printAll();
-        hashMap.put("first", "hello,");
+        hashMap.put("1", "test0");
         hashMap.printAll();
-        hashMap.put("second", "world");
+        hashMap.put("2", "test1");
+        hashMap.put("3", "test2");
+        hashMap.put("4", "test3");
+        hashMap.put("5", "test4");
+        hashMap.put("6", "test5");
+        hashMap.put("6", "test55");
+        hashMap.put("7", "test6");
+        hashMap.put("8", "test7");
+        hashMap.put("9", "test8");
+        hashMap.put("10", "test9");
+        hashMap.put("11", "test10");
+        hashMap.put("12", "test11");
+        hashMap.put("13", "test12");
+        hashMap.put("14", "test13");
+        hashMap.put("15", "test14");
+        hashMap.put("16", "test15");
         hashMap.printAll();
-        hashMap.put("third", "!");
+        System.out.println("hashMap.get(\"7\") = " + hashMap.get("7"));
+        //System.out.println("hashMap.get(\"33\") = " + hashMap.get("33"));
+        hashMap.remove("14");
         hashMap.printAll();
-        hashMap.remove(1);
+        hashMap.remove("1");
         hashMap.printAll();
         hashMap.clear();
         hashMap.printAll();
