@@ -1,14 +1,14 @@
 package main.java.myCollections;
 
 
-public class MySinglyLinkedList {
+public class MySinglyLinkedList<T> {
     ListNode head;
 
     public MySinglyLinkedList() {
         this.head = null;
     }
 
-    public void add(int val) {
+    public void add(T val) {
         ListNode newNode = new ListNode(val);
 
         if (head == null) {
@@ -24,12 +24,12 @@ public class MySinglyLinkedList {
         }
     }
 
-    public void delete(int val) {
+    public void remove(T val) {
         if (head == null) {
             return;
         }
 
-        if (head.val == val) {
+        if (head.val.equals(val)) {
             head = head.next;
             return;
         }
@@ -37,7 +37,7 @@ public class MySinglyLinkedList {
         ListNode current = head;
 
         while (current.next != null) {
-            if (current.next.val == val) {
+            if (current.next.val.equals(val)) {
                 current.next = current.next.next;
                 return;
             }
@@ -57,11 +57,11 @@ public class MySinglyLinkedList {
         System.out.println();
     }
 
-    public static class ListNode {
-        int val;
+    public static class ListNode <T>{
+        T val;
         ListNode next;
 
-        public ListNode(int val) {
+        public ListNode(T val) {
             this.val = val;
             this.next = null;
         }
