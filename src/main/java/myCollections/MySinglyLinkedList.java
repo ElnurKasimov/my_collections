@@ -10,7 +10,6 @@ public class MySinglyLinkedList<T> {
 
     public void add(T val) {
         ListNode newNode = new ListNode(val);
-
         if (head == null) {
             head = newNode;
         } else {
@@ -19,42 +18,41 @@ public class MySinglyLinkedList<T> {
             while (current.next != null) {
                 current = current.next;
             }
-
             current.next = newNode;
         }
     }
 
     public void remove(T val) {
         if (head == null) {
-            return;
+            throw new  MyIllegalArgumentException
+                    ("Trying to delete an element but the list is empty");
         }
-
         if (head.val.equals(val)) {
             head = head.next;
             return;
         }
-
         ListNode current = head;
-
         while (current.next != null) {
             if (current.next.val.equals(val)) {
                 current.next = current.next.next;
                 return;
             }
-
             current = current.next;
         }
     }
 
-    public void printList() {
-        ListNode current = head;
+    public void clear() {
+        head = null;
+    }
 
+    public void printList() {
+        System.out.print("[ ");
+        ListNode current = head;
         while (current != null) {
-            System.out.print(current.val + " ");
+            System.out.print(current.val + ", ");
             current = current.next;
         }
-
-        System.out.println();
+        System.out.println("]");
     }
 
     public static class ListNode <T>{

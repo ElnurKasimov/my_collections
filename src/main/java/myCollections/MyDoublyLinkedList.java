@@ -1,6 +1,6 @@
 package main.java.myCollections;
 
-public class MyDoublyLinkedList<T> {
+public class  MyDoublyLinkedList<T> {
     private Node first = new Node();
     private Node last = new Node();
     private int size;

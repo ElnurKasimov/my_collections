@@ -89,12 +89,15 @@ public class TestingApp {
         System.out.println(" -----------------   testing My Singly Linked List -----------------------------");
         MySinglyLinkedList<String> singlyList = new MySinglyLinkedList<>();
         singlyList.printList();
+        //singlyList.remove("test");
         singlyList.add("hello");
         singlyList.printList();
         singlyList.add("world");
         singlyList.add("!");
         singlyList.printList();
         singlyList.remove("world");
-       singlyList.printList();
+        singlyList.printList();
+        singlyList.clear();
+        singlyList.printList();
     }
 }
